@@ -1,0 +1,40 @@
+{
+  "identifier": "0",
+  "nonRenewingSubscriptions": [],
+  "products": [],
+  "settings": {},
+  "subscriptionGroups": [
+    {
+      "id": "1",
+      "localizations": [],
+      "name": "Sleep Trends Group",
+      "subscriptions": [
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "2.99",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "1",
+          "introductoryOffer": null,
+          "localizations": [
+            {
+              "description": "Weekly trend charts and CSV export of your sleep history.",
+              "displayName": "Sleep Trends",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "com.shimondeitel.sleeplog.pro.monthly",
+          "recurringSubscriptionPeriod": "P1M",
+          "referenceName": "Sleep Trends",
+          "subscriptionGroupID": "1",
+          "type": "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version": {
+    "major": 3,
+    "minor": 1
+  }
+}

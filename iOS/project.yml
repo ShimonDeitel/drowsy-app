@@ -1,0 +1,75 @@
+name: Drowsy
+options:
+  bundleIdPrefix: com.shimondeitel.sleeplog
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+settings:
+  base:
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "5.0"
+    DEVELOPMENT_TEAM: "W7Q885Q59C"
+    CODE_SIGN_STYLE: Automatic
+    IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+    TARGETED_DEVICE_FAMILY: "1"
+    ENABLE_USER_SCRIPT_SANDBOXING: "YES"
+targets:
+  Drowsy:
+    type: application
+    platform: iOS
+    sources:
+      - path: Drowsy
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.shimondeitel.sleeplog
+        TARGETED_DEVICE_FAMILY: "1"
+        INFOPLIST_FILE: Drowsy/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        ENABLE_PREVIEWS: "YES"
+        GENERATE_INFOPLIST_FILE: "NO"
+  DrowsyTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: DrowsyTests
+      - path: Drowsy.storekit
+    dependencies:
+      - target: Drowsy
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.shimondeitel.sleeplog.tests
+        GENERATE_INFOPLIST_FILE: "YES"
+        TARGETED_DEVICE_FAMILY: "1"
+  DrowsyUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: DrowsyUITests
+    dependencies:
+      - target: Drowsy
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.shimondeitel.sleeplog.uitests
+        GENERATE_INFOPLIST_FILE: "YES"
+        TARGETED_DEVICE_FAMILY: "1"
+schemes:
+  Drowsy:
+    build:
+      targets:
+        Drowsy: all
+        DrowsyTests: [test]
+        DrowsyUITests: [test]
+    run:
+      config: Debug
+      storeKitConfiguration: Drowsy.storekit
+    test:
+      config: Debug
+      storeKitConfiguration: Drowsy.storekit
+      targets:
+        - DrowsyTests
+        - DrowsyUITests
+    archive:
+      config: Release
